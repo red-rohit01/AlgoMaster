@@ -24,7 +24,7 @@ function Workspace() {
     const params = useParams()
     const callProblem = async () => {
         try {
-            let result = await fetch('http://localhost:5000/questions/' + params.uniquename, {
+            let result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/questions/` + params.uniquename, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json"
@@ -79,7 +79,7 @@ function Workspace() {
             if (code === "") {
                 window.alert("First write some code");
             }
-            const response = await fetch(`http://localhost:5000/run`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/run`, {
                 method: 'POST',
                 body: JSON.stringify({ language: lang, code: code, input: userInput }),
                 headers: {
@@ -123,7 +123,7 @@ function Workspace() {
             if (code === "") {
                 window.alert("First write some code");
             }
-            const response = await fetch(`http://localhost:5000/run`, {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/run`, {
                 method: 'POST',
                 body: JSON.stringify({ language: lang, code: code, input: input }),
                 headers: {
@@ -158,7 +158,7 @@ function Workspace() {
             }
 
 
-            const result = await fetch(`http://localhost:5000/addsubmission`, {
+            const result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/addsubmission`, {
                 method: 'POST',
                 body: JSON.stringify({ questionname: params.uniquename, lang: lang, code: code, verdict: verdict, userid: userid }),
                 headers: {

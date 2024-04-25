@@ -15,7 +15,7 @@ function Login() {
   })
 
   const handleClick = async () => {
-    let result = await fetch('http://localhost:5000/login', {
+    let result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/login`, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: {

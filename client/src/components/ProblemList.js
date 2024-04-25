@@ -9,7 +9,7 @@ function ProblemList() {
 
   const callProblemList = async () => {
     try {
-      let result = await fetch('http://localhost:5000/questions', {
+      let result = await fetch(`${process.env.REACT_APP_BACKEND_URL}/questions`, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json"

@@ -4,7 +4,7 @@ const compile =  async (data)=>{
 
   try {
     const res = await axios
-      .post("http://localhost:5000/code",data)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/code`,data)
       console.log(res.data)
     return (res.data)
   } catch(err) {

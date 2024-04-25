@@ -24,7 +24,7 @@ const Submissions = () => {
 
   const callSubmissions = async () => {
     try {
-      let res = await fetch('http://localhost:5000/submissions/' + params.uniquename, {
+      let res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/submissions/` + params.uniquename, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json"
